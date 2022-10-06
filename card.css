@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;500;600;700&display=swap");
+:root {
+  --clr-dark-accent:hsl(207 19% 9%);
+  --clr-light-accent:hsl(0 0% 100%);
+  --clr-green-accent:hsl(142 90% 61%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Signika Negative", sans-serif;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: var(--clr-dark-accent);
+}
+body .card-container {
+  padding: 15rem 0 0 0;
+  background-image: url(1.webp);
+  background-size: cover;
+  background-position: center;
+  border-radius: 1em;
+  overflow: hidden;
+  transition: 500ms ease;
+}
+body .card-container .card-content {
+  color: white;
+  --padding:1.25rem;
+  padding: var(--padding);
+  background: linear-gradient(hsla(0deg, 0%, 0%, 0), hsla(20deg, 0%, 0%, 0.2) 20%, hsl(0deg, 0%, 0%));
+  transform: translateY(65%);
+  transition: transform 500ms ease;
+}
+body .card-container .card-content .card-title {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: relative;
+  padding-bottom: 6px;
+}
+body .card-container .card-content .card-title::after {
+  content: "";
+  position: absolute;
+  width: calc(100% + var(--padding));
+  left: calc(var(--padding) * -1);
+  bottom: 0;
+  background: var(--clr-green-accent);
+  height: 6px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 500ms ease;
+}
+body .card-container .card-content .card-details {
+  width: 25ch;
+  color: whitesmoke !important;
+  padding: 1rem 0;
+}
+body .card-container .card-content .button {
+  padding: 0.5rem 1.25rem;
+  background-color: var(--clr-green-accent);
+  color: var(--clr-dark-accent);
+  font-weight: 700;
+  border-radius: 0.35em;
+  transition: 500ms ease;
+  outline: none;
+  border: none;
+  background-color: rgb(28, 235, 104);
+}
+body .card-container .card-content .button:hover,
+body .card-container .card-content .button:focus {
+  transform: scale(1.05);
+}
+body .card-container:hover {
+  transform: scale(1.05);
+}
+body .card-container:hover .card-title::after {
+  transform: scaleX(1);
+}
+body .card-container:hover .card-content {
+  transition-delay: 500ms;
+  transform: translateY(0);
+}/*# sourceMappingURL=card.css.map */

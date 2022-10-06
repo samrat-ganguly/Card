@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;500;600;700&display=swap');
+:root{
+    --clr-dark-accent:hsl(207 19% 9%);
+    --clr-light-accent:hsl(0 0% 100%);
+    --clr-green-accent:hsl(142 90% 61%);
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Signika Negative', sans-serif;
+}
+
+body{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color:var(--clr-dark-accent) ;
+
+    .card-container{
+        padding:15rem 0 0 0;
+        background-image: url(1.webp);
+        background-size: cover;
+        background-position: center;
+        border-radius: 1em;
+        overflow:hidden;
+        transition: 500ms ease;
+
+        .card-content{
+            color:white;
+            --padding:1.25rem;
+            padding:var(--padding);
+            background:linear-gradient(
+                hsl(0 0% 0% / 0),
+                hsl(20 0% 0% / 0.2) 20%,
+                hsl(0 0% 0% / 1)
+            ) ;
+            transform: translateY(65%);
+            transition: transform 500ms ease;
+
+            .card-title{
+                width:max-content;
+                position:relative;
+                padding-bottom: 6px;
+            }
+            .card-title::after{
+                content:"";
+                position:absolute;
+                width:calc(100% + var(--padding));
+                left:calc(var(--padding)* -1);
+                bottom:0;
+                background: var(--clr-green-accent);
+                height:6px;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 500ms ease;
+            }
+            .card-details{
+                width:25ch;
+                color: whitesmoke !important;
+                padding:1rem 0;
+            }
+
+            .button{
+                padding:0.5rem 1.25rem;
+                background-color: var(--clr-green-accent);
+                color:var(--clr-dark-accent);
+                font-weight: 700;
+                border-radius: 0.35em;
+                transition: 500ms ease;
+                outline:none;
+                border:none;
+                background-color: rgb(28, 235, 104);
+            }
+            .button:hover,
+            .button:focus{
+                transform: scale(1.05);
+            }
+        }
+    }
+    .card-container:hover{
+        transform: scale(1.05);
+    }
+    .card-container:hover .card-title::after{
+        transform: scaleX(1);
+    }
+    .card-container:hover .card-content{
+        transition-delay: 500ms;
+        transform: translateY(0);
+    }
+}
